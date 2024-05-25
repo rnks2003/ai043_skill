@@ -3,10 +3,24 @@
 
 void display(){
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(1.0,0.0,0.0);
-    glPointSize(5.0);
+    glColor3f(1.0,1.0,1.0);
+    glPointSize(1.0);
     glBegin(GL_POINTS);
-    glVertex2d(10.0,20.0);
+    for(float x=250.0;x<500;x+=2)
+        for(float y=0.0;y<250;y+=2){
+            if(x+y < 400 && x-y > 100){
+                glColor3f(1.0,0.0,0.0);
+            }
+            else if(x+y < 570 && x-y > 0){
+                glColor3f(0.0,1.0,0.0);
+            }
+            else{
+                glColor3f(0.0,0.0,1.0);
+            }
+            glVertex2d(x+y,y);
+            glVertex2d(x-y,y);
+            
+        }
     glEnd();
     glFlush();
 }
@@ -14,14 +28,14 @@ void init(){
     glClearColor(0.0,0.0,0.0,1.0);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluOrtho2D(-400,400,-400,400);
+    gluOrtho2D(0,800,-100,300);
 }
 void main(int argc, char** argv){
     glutInit(&argc,argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 
-    glutInitWindowSize(400,300);
-    glutInitWindowPosition(0,0);
+    glutInitWindowSize(1000,500);
+    glutInitWindowPosition(100,100);
 
     glutCreateWindow("Dot");
     init();
