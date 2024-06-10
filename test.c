@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "/usr/include/GL/glut.h"
-
+char i=0;
 void display(){
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0,1.0,1.0);
@@ -10,16 +10,16 @@ void display(){
     for(float x=250.0;x<500;x+=2)
         for(float y=0.0;y<250;y+=2){
             if(x+y < 400 && x-y > 100){
-                glColor3f(1.0,0.0,0.0);
-            }
-            else if(x+y < 570 && x-y > 0){
                 glColor3f(0.0,1.0,0.0);
             }
-            else{
+            else if(x+y < 570 && x-y > 0){
                 glColor3f(0.0,0.0,1.0);
             }
-            glVertex2d(x+y,y);
-            glVertex2d(x-y,y);
+            else{
+                glColor3f(1.0,0.0,0.0);
+            }
+            glVertex2f(x+y,y);
+            glVertex2f(x-y,y);
 
         }
     glEnd();
