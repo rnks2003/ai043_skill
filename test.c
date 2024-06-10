@@ -10,13 +10,13 @@ void display(){
     for(float x=250.0;x<500;x+=2)
         for(float y=0.0;y<250;y+=2){
             if(x+y < 400 && x-y > 100){
-                glColor3f(0.0,1.0,0.0);
+                glColor4f(1.0,0.0,0.0,0.5);
             }
             else if(x+y < 570 && x-y > 0){
-                glColor3f(0.0,0.0,1.0);
+                glColor4f(0.0,1.0,0.0,0.5);
             }
             else{
-                glColor3f(1.0,0.0,0.0);
+                glColor4f(0.0,0.0,1.0,0.5);
             }
             glVertex2f(x+y,y);
             glVertex2f(x-y,y);
