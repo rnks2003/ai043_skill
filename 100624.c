@@ -21,8 +21,8 @@ void display(){
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    glRotatef(currentAngleOfRotation,0.,0.,1.);
-    glRectf(-2.,-2.,2.,2.);
+    glRotatef(currentAngleOfRotation,0.01,0.55,0.01);
+    glRectf(-1.,-10.,20.,10.);
     glFlush();
     glutSwapBuffers();
 }
